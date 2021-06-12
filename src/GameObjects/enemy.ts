@@ -3,9 +3,38 @@ import { Physics, PhysicsType } from '@eva/plugin-matterjs';
 import { Img } from '@eva/plugin-renderer-img';
 import Enemy from '../Components/Enemy';
 import { GAME_SIZE } from '../CONST';
+
+const enemys = [
+    {
+        name: "enemy_1",
+        size: {
+            width: 248, height: 212
+        },
+        force_y: 0.4
+
+    },
+    {
+        name: "enemy_2",
+        size: {
+            width: 240, height: 308
+        },
+        force_y: 0.2
+    },
+    {
+        name: "enemy_3",
+        size: {
+            width: 346, height: 264
+        },
+        force_y: 0.1
+    },
+]
+
+
+
 const EnamySprite = () => {
+    const ememyRandom = enemys[Math.round(Math.random() * 2)]
     const enemy = new GameObject("enemy", {
-        size: { width: 248, height: 212 },
+        size: ememyRandom.size,
         origin: { x: 0.5, y: 0.5 },
         position: {
             x: Math.floor(Math.random() * (GAME_SIZE.WIDTH)),
@@ -23,7 +52,7 @@ const EnamySprite = () => {
 
     enemy.addComponent(
         new Img({
-            resource: 'enemy_1'
+            resource: ememyRandom.name
         })
     );
 
@@ -37,7 +66,7 @@ const EnamySprite = () => {
             frictionStatic: 0,
             force: {
                 x: 0,
-                y: 0.2,
+                y: ememyRandom.force_y
             },
         },
         stopRotation: false, // default false, usually do not need to be set

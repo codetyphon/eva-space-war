@@ -15,6 +15,7 @@ import { TransitionSystem } from '@eva/plugin-transition';
 import { GraphicsSystem } from '@eva/plugin-renderer-graphics';
 import { PhysicsSystem } from '@eva/plugin-matterjs';
 import { TilingSpriteSystem } from '@eva/plugin-renderer-tiling-sprite';
+import { Sound, SoundSystem } from '@eva/plugin-sound';
 import Res from './res';
 import BackGround from './GameObjects/background';
 import Player from './GameObjects/player';
@@ -48,6 +49,7 @@ const game = new Game({
     new TextSystem(),
     new GraphicsSystem(),
     new EventSystem(),
+    new SoundSystem(),
     new PhysicsSystem({
       resolution: window.devicePixelRatio / 2, // 保持RendererSystem的resolution一致
       isTest: false, // 是否开启调试模式
@@ -90,6 +92,12 @@ const init = () => {
   scene.addChild(player);
 };
 
+const bgSoundObj = new GameObject('sound');
+const bgSound = bgSoundObj.addComponent(
+  new Sound({ resource: 'bgSound', loop: true, autoplay: true, volume: 1 })
+);
+bgSound.play();
+
 // document.addEventListener("click", () => {
 
 // });
@@ -123,7 +131,7 @@ game.ticker.add(() => {
         init();
       }
     }
-  } catch (error) {}
+  } catch (error) { }
 });
 
 document.addEventListener('visibilitychange', () => {

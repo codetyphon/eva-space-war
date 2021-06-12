@@ -442,6 +442,14 @@
     lodash-es "^4.17.21"
     pixi.js "^4.8.7"
 
+"@eva/plugin-sound@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/@eva/plugin-sound/-/plugin-sound-1.0.7.tgz#7f2be7029e2d4868e0e2eb91a902511b141c541d"
+  integrity sha512-w6o2G0b33QUqwccTn3uXkXuwdmhBn8QBG+edgMzLf8aJx5C7eszF6V/6VOOK8v5A0BKIAT2KuevW54dzT5ySgg==
+  dependencies:
+    "@eva/eva.js" "^1.0.7"
+    eventemitter3 "^3.1.2"
+
 "@eva/plugin-transition@^1.0.0":
   version "1.0.7"
   resolved "https://repo.huaweicloud.com/repository/npm/@eva/plugin-transition/-/plugin-transition-1.0.7.tgz#cda24781f0395f992e7fdf80688e02b0089a372b"
