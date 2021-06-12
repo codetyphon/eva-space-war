@@ -46,6 +46,28 @@ const Res = [
         preload: true,
     },
     {
+        name: "enemy_2",
+        type: RESOURCE_TYPE.IMAGE,
+        src: {
+            image: {
+                type: "png",
+                url: "assets/enemy_2.png",
+            },
+        },
+        preload: true,
+    },
+    {
+        name: "enemy_3",
+        type: RESOURCE_TYPE.IMAGE,
+        src: {
+            image: {
+                type: "png",
+                url: "assets/enemy_3.png",
+            },
+        },
+        preload: true,
+    },
+    {
         name: "left",
         type: RESOURCE_TYPE.IMAGE,
         src: {
@@ -63,6 +85,28 @@ const Res = [
             image: {
                 type: "png",
                 url: "assets/right.png",
+            },
+        },
+        preload: true,
+    },
+    {
+        name: "bgSound",
+        type: RESOURCE_TYPE.AUDIO,
+        src: {
+            audio: {
+                type: "audio",
+                url: "assets/bg.mp3",
+            },
+        },
+        preload: true,
+    },
+    {
+        name: "gameoverSound",
+        type: RESOURCE_TYPE.AUDIO,
+        src: {
+            audio: {
+                type: "audio",
+                url: "assets/gameover.wav",
             },
         },
         preload: true,

@@ -6,10 +6,11 @@ import {
 } from '@eva/plugin-renderer-event';
 import { Scene } from '@eva/eva.js';
 import { GAME_SIZE } from '../CONST';
+import { Sound } from '@eva/plugin-sound';
 
 const GameOver = () => {
     const gameOver = new GameObject("GameOver", {
-        size: { width:GAME_SIZE.WIDTH, height:GAME_SIZE.WIDTH / 5 },
+        size: { width: GAME_SIZE.WIDTH, height: GAME_SIZE.WIDTH / 5 },
         origin: { x: 0.5, y: 0.5 },
         scale: { x: 0.8, y: 0.8 },
         position: {
@@ -28,6 +29,12 @@ const GameOver = () => {
         })
     );
 
+    const bgSoundObj = new GameObject('sound');
+    const bgSound = bgSoundObj.addComponent(
+        new Sound({ resource: 'gameoverSound', loop: false, autoplay: true, volume: 1 })
+    );
+    bgSound.play();
+
     const evt = gameOver.addComponent(new Event())
 
     evt.on('touchstart', e => {
@@ -39,7 +46,7 @@ const GameOver = () => {
         const score = scene.gameObjects.find((item) => { return item.name == "score" })
         const text = score.getComponent(Text)
         text.text = 0 + ""
-        
+
         while (scene.gameObjects.find((item) => { return item.name == "enemy" })) {
             scene.gameObjects.find((item) => { return item.name == "enemy" }).destroy()
         }
