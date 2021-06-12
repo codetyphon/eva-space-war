@@ -26,6 +26,7 @@ import RightBtn from './GameObjects/right_btn';
 import PlayerAction from './Components/PlayerAction';
 import { GAME_SIZE } from './CONST';
 import createStar from './GameObjects/star';
+import BombSprite from './GameObjects/bomb';
 
 resource.addResource(Res);
 
@@ -130,6 +131,24 @@ game.ticker.add(() => {
       });
       if (!enemy) {
         init();
+      }
+    }
+  } catch (error) { }
+});
+
+let time = 0
+game.ticker.add(() => {
+  time += 1
+  if (time % 2000 != 0) return;
+  try {
+    const player: GameObject = game.scene.gameObjects.find((item) => {
+      return item.name == 'player';
+    });
+    if (player) {
+      console.log(player);
+      const playerAction: PlayerAction = player.getComponent('playerAction');
+      if (playerAction) {
+        game.scene.addChild(BombSprite());
       }
     }
   } catch (error) { }

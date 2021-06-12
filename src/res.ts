@@ -90,6 +90,17 @@ const Res = [
         preload: true,
     },
     {
+        name: "bomb",
+        type: RESOURCE_TYPE.IMAGE,
+        src: {
+            image: {
+                type: "png",
+                url: "assets/bomb.png",
+            },
+        },
+        preload: true,
+    },
+    {
         name: "bgSound",
         type: RESOURCE_TYPE.AUDIO,
         src: {
