@@ -2,13 +2,14 @@ import { GameObject } from '@eva/eva.js';
 import { Physics, PhysicsType } from '@eva/plugin-matterjs';
 import { Img } from '@eva/plugin-renderer-img';
 import Enemy from '../Components/Enemy';
+import { GAME_SIZE } from '../CONST';
 const EnamySprite = () => {
     const enemy = new GameObject("enemy", {
-        size: { width: 124, height: 106 },
+        size: { width: 248, height: 212 },
         origin: { x: 0.5, y: 0.5 },
         position: {
-            x: Math.floor(Math.random() * (window.innerWidth)),
-            y: 60
+            x: Math.floor(Math.random() * (GAME_SIZE.WIDTH)),
+            y: 120
         },
         scale: {
             x: 0.5,
@@ -36,7 +37,7 @@ const EnamySprite = () => {
             frictionStatic: 0,
             force: {
                 x: 0,
-                y: 0.1,
+                y: 0.2,
             },
             stopRotation: true, // default false, usually do not need to be set
         },

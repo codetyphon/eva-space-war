@@ -5,15 +5,16 @@ import {
     Event,
 } from '@eva/plugin-renderer-event';
 import { Scene } from '@eva/eva.js';
+import { GAME_SIZE } from '../CONST';
 
 const GameOver = () => {
     const gameOver = new GameObject("GameOver", {
-        size: { width: window.innerWidth, height: window.innerWidth / 5 },
+        size: { width:GAME_SIZE.WIDTH, height:GAME_SIZE.WIDTH / 5 },
         origin: { x: 0.5, y: 0.5 },
         scale: { x: 0.8, y: 0.8 },
         position: {
-            x: window.innerWidth / 2,
-            y: window.innerHeight / 2
+            x: GAME_SIZE.WIDTH / 2,
+            y: GAME_SIZE.HEIGHT / 2
         },
         anchor: {
             x: 0,

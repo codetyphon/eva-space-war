@@ -1,5 +1,6 @@
 import { GameObject, Transform } from "@eva/eva.js";
 import { Component } from "@eva/eva.js";
+import { GAME_SIZE } from '../CONST';
 import GameOver from "../GameObjects/gameover";
 
 export default class PlayerAction extends Component {
@@ -17,7 +18,7 @@ export default class PlayerAction extends Component {
         const y = this.gameObject.getComponent(Transform).position.y
         // // console.log(x)
         // this.gameObject.transform.position.x-=10
-        if (x < 0 || x > window.innerWidth || y > window.innerHeight || y < 0) {
+        if (x < 0 || x > GAME_SIZE.WIDTH || y > GAME_SIZE.HEIGHT || y < 0) {
             this.gameObject.scene.addChild(GameOver()) 
             this.gameObject.scene.gameObjects.map(item => {
                 if (item.name == "enemy") {

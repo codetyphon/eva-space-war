@@ -5,14 +5,15 @@ import {
     Event,
 } from '@eva/plugin-renderer-event';
 import { Scene } from '@eva/eva.js';
+import { GAME_SIZE } from '../CONST';
 const LeftBtn = () => {
     const btn = new GameObject("leftBtn", {
-        size: { width: 150, height: 150 },
+        size: { width: 300, height: 300 },
         origin: { x: 0.5, y: 0.5 },
         scale: { x: 0.5, y: 0.5 },
         position: {
-            x: 50,
-            y: window.innerHeight - 50
+            x: 100,
+            y: GAME_SIZE.HEIGHT - 100
         },
         anchor: {
             x: 0,
@@ -34,7 +35,7 @@ const LeftBtn = () => {
         try {
             const scene: Scene = btn.scene
             const player: GameObject = scene.gameObjects.find((item) => { return item.name == "player" })
-            player.getComponent(Physics).body.force.x = -0.05
+            player.getComponent(Physics).body.force.x = -0.5
         } catch (error) {
 
         }
