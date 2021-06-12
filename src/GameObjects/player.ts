@@ -2,13 +2,14 @@ import { GameObject } from "@eva/eva.js";
 import { Physics, PhysicsType } from "@eva/plugin-matterjs";
 import { Img } from "@eva/plugin-renderer-img";
 import PlayerAction from "../Components/PlayerAction";
+import { GAME_SIZE } from '../CONST';
 const Player = () => {
     const player = new GameObject("player", {
-        size: { width: 103, height: 107 },
+        size: { width: 206, height: 214 },
         origin: { x: 0.5, y: 0.5 },
         position: {
-            x: window.innerWidth / 2,
-            y: window.innerHeight - 107 - 30,
+            x: GAME_SIZE.WIDTH / 2,
+            y: GAME_SIZE.HEIGHT - 214 - 60,
         },
         scale: {
             x: 0.5,

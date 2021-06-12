@@ -4,8 +4,8 @@ import { Text } from '@eva/plugin-renderer-text'
 const Score = () => {
     const text = new GameObject('score', {
         position: {
-            x: 30,
-            y: 30
+            x: 60,
+            y: 60
         },
         origin: {
             x: 0.5,
@@ -21,7 +21,7 @@ const Score = () => {
             text: 0,
             style: {
                 fontFamily: 'Arial',
-                fontSize: 40,
+                fontSize: 80,
                 fontWeight: 'bold',
                 fill: ['#fff'], // gradient
             }
