@@ -38,7 +38,7 @@ const EnamySprite = () => {
         origin: { x: 0.5, y: 0.5 },
         position: {
             x: Math.floor(Math.random() * (GAME_SIZE.WIDTH)),
-            y: 120
+            y: -120
         },
         scale: {
             x: 0.5,
@@ -60,7 +60,7 @@ const EnamySprite = () => {
         type: PhysicsType.RECTANGLE,
         bodyOptions: {
             isStatic: false, // Whether the object is still, any force acting on the object in a static state will not produce any effect
-            restitution: 0.3,
+            restitution: 0.5,
             frictionAir: 0,
             friction: 0,
             frictionStatic: 0,

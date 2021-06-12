@@ -83,13 +83,14 @@ scene.addChild(
 );
 scene.addChild(LeftBtn());
 scene.addChild(RightBtn());
-scene.addChild(Score());
+
 
 const init = () => {
   const player = Player();
   const payerAction: PlayerAction = player.getComponent('playerAction');
   payerAction.setgame(game);
   scene.addChild(player);
+  scene.addChild(Score());
 };
 
 const bgSoundObj = new GameObject('sound');
@@ -107,7 +108,7 @@ game.start();
 
 let startTime = Date.now();
 game.ticker.add(() => {
-  if (Date.now() - startTime < 1500) return;
+  if (Date.now() - startTime < 1000) return;
   startTime = Date.now();
   try {
     const player: GameObject = game.scene.gameObjects.find((item) => {
