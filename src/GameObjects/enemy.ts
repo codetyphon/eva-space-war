@@ -68,8 +68,8 @@ const EnamySprite = () => {
                 x: 0,
                 y: ememyRandom.force_y
             },
-            stopRotation: true, // default false, usually do not need to be set
         },
+        stopRotation: false, // default false, usually do not need to be set
     }))
 
     enemy.addComponent(new Enemy());

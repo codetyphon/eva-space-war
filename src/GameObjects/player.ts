@@ -41,8 +41,8 @@ const Player = () => {
                 x: 0,
                 y: -0.1,
             },
-            stopRotation: true,
         },
+        stopRotation: false,
     }))
 
     return player
