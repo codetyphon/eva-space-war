@@ -9,14 +9,19 @@ export default class Enemy extends Component {
     constructor() {
         super();
     }
-    update() {
-        const y = this.gameObject.getComponent(Transform).position.y
-        if (y >= GAME_SIZE.HEIGHT) {
-            const scene: Scene = this.gameObject.scene
-            const score = scene.gameObjects.find((item) => { return item.name == "score" })
+    score_add() {
+        const scene: Scene = this.gameObject.scene
+        const score = scene.gameObjects.find((item) => { return item.name == "score" })
+        if (score) {
             const text = score.getComponent(Text)
-            const number:number = parseInt(text.text)
+            const number: number = parseInt(text.text)
             text.text = (number + 1) + ""
+        }
+    }
+    update() {
+        const { x, y } = this.gameObject.getComponent(Transform).position
+        if (y >= GAME_SIZE.HEIGHT) {
+            this.score_add()
             this.gameObject.destroy()
         }
     }

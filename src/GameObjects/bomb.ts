@@ -1,8 +1,9 @@
+import { Scene } from '@eva/eva.js';
 import { GameObject } from '@eva/eva.js';
 import { Physics, PhysicsType } from '@eva/plugin-matterjs';
 import { Img } from '@eva/plugin-renderer-img';
-import Enemy from '../Components/Enemy';
 import { GAME_SIZE } from '../CONST';
+import { Text } from '@eva/plugin-renderer-text'
 
 
 const BombSprite = () => {
@@ -49,9 +50,15 @@ const BombSprite = () => {
     }))
 
     physics.on('collisionStart', (body, gameObject1, gameObject2) => {
-        if (body.name == "player") {
+        if (body.name == "player" || body.name == "laser") {
             while (bomb.scene.gameObjects.find((item) => { return item.name == "enemy" })) {
                 bomb.scene.gameObjects.find((item) => { return item.name == "enemy" }).destroy()
+                //score +1 
+                const scene: Scene = bomb.scene
+                const score = scene.gameObjects.find((item) => { return item.name == "score" })
+                const text = score.getComponent(Text)
+                const number: number = parseInt(text.text)
+                text.text = (number + 1) + ""
             }
             bomb.destroy()
         }

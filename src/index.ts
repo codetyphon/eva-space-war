@@ -27,6 +27,7 @@ import PlayerAction from './Components/PlayerAction';
 import { GAME_SIZE } from './CONST';
 import createStar from './GameObjects/star';
 import BombSprite from './GameObjects/bomb';
+import AttackBtn from './GameObjects/attack_btn';
 
 resource.addResource(Res);
 
@@ -84,7 +85,7 @@ scene.addChild(
 );
 scene.addChild(LeftBtn());
 scene.addChild(RightBtn());
-
+scene.addChild(AttackBtn());
 
 const init = () => {
   const player = Player();
@@ -106,7 +107,6 @@ bgSound.play();
 
 init();
 game.start();
-
 let startTime = Date.now();
 game.ticker.add(() => {
   if (Date.now() - startTime < 1000) return;
@@ -116,7 +116,7 @@ game.ticker.add(() => {
       return item.name == 'player';
     });
     if (player) {
-      console.log(player);
+      // console.log(player);
       const playerAction: PlayerAction = player.getComponent('playerAction');
       if (playerAction) {
         game.scene.addChild(EnamySprite());

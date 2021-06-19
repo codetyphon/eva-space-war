@@ -9,7 +9,7 @@ const Player = () => {
         origin: { x: 0.5, y: 0.5 },
         position: {
             x: GAME_SIZE.WIDTH / 2,
-            y: GAME_SIZE.HEIGHT - 214 - 60,
+            y: GAME_SIZE.HEIGHT / 2,
         },
         scale: {
             x: 0.5,

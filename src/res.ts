@@ -90,6 +90,28 @@ const Res = [
         preload: true,
     },
     {
+        name: "attack",
+        type: RESOURCE_TYPE.IMAGE,
+        src: {
+            image: {
+                type: "png",
+                url: "assets/attack.png",
+            },
+        },
+        preload: true,
+    },
+    {
+        name: "laser",
+        type: RESOURCE_TYPE.IMAGE,
+        src: {
+            image: {
+                type: "png",
+                url: "assets/player_laser.png",
+            },
+        },
+        preload: true,
+    },
+    {
         name: "bomb",
         type: RESOURCE_TYPE.IMAGE,
         src: {
@@ -107,6 +129,17 @@ const Res = [
             audio: {
                 type: "audio",
                 url: "assets/bg.mp3",
+            },
+        },
+        preload: true,
+    },
+    {
+        name: "attackSound",
+        type: RESOURCE_TYPE.AUDIO,
+        src: {
+            audio: {
+                type: "audio",
+                url: "assets/attack.mp3",
             },
         },
         preload: true,
